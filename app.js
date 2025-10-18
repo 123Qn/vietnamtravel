@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
-import indexRouter from './routes/index.js';
+import indexRouter from './routes/home.js';
 import usersRouter from './routes/users.js';
 
 const __filename = fileURLToPath(import.meta.url);

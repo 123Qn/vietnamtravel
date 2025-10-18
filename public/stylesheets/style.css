@@ -1,8 +1,62 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+      font-family: var(--ff-poppins);
+    scroll-behavior: smooth;
+  margin:0;
+  padding:0;
+    overflow-x: hidden;
 }
 
 a {
-  color: #00B7FF;
+  color: #e5eef1;
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: medium;
 }
+li {
+  list-style: none;
+}
+/* Navigation bar styles */
+.nav-list{
+  display: flex;
+  gap: 50px;
+  padding: 0;
+  flex-direction: row;
+}
+.main-nav {
+    position: fixed; /* fix navbar on top */
+    margin-top: 50px;
+    width: 100%;
+    z-index: 10; 
+    color: white;
+    display: flex;           /* make it flex */
+    justify-content: center; /* center items horizontally */
+    align-items: center;     /* center items vertically */
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+    height: 80%;
+  background: rgba(0, 0, 0, 0.35); /* darkness level (0.3–0.5 is ideal) */
+  z-index: 1;
+}
+/*For display the popular destination in home page*/
+.popular-destination h1{
+  text-align: center;
+  position: relative;
+  margin:-5%;
+}
+
