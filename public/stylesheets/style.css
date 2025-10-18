@@ -16,22 +16,31 @@ li {
   list-style: none;
 }
 /* Navigation bar styles */
-.nav-list{
-  display: flex;
-  gap: 50px;
-  padding: 0;
-  flex-direction: row;
-}
 .main-nav {
-    position: fixed; /* fix navbar on top */
-    margin-top: 50px;
-    width: 100%;
+    background-color: hsl(214, 72%, 33%, 0.8); /* semi-transparent */
+    position: fixed;   /* stick on top */
+    top: 10%;            /* optional: stick to very top */
+    left: 50%;         /* center horizontally */
+    transform: translateX(-50%);
+    width: 50%;        /* smaller navbar */
     z-index: 10; 
     color: white;
-    display: flex;           /* make it flex */
-    justify-content: center; /* center items horizontally */
-    align-items: center;     /* center items vertically */
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    padding: 10px 0;   /* optional vertical padding */
+    border-radius: 10px; /* optional rounded edges */
 }
+
+.nav-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 30px;         /* space between nav items */
+    flex-direction: row;
+    list-style: none;
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -53,10 +62,87 @@ li {
   background: rgba(0, 0, 0, 0.35); /* darkness level (0.3–0.5 is ideal) */
   z-index: 1;
 }
+
 /*For display the popular destination in home page*/
+.popular-destination{
+  position: relative;
+  margin:-8%;
+  display: flex;
+  flex-direction: column;
+}
+.popular-destination p{
+  margin-bottom:-1%;
+}
 .popular-destination h1{
   text-align: center;
-  position: relative;
-  margin:-5%;
 }
+/*Grid 3x2*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+  justify-items: center;
+  justify-content: center; 
+  margin: 0 auto;    /* center the container itself */
+}
+.grid-item {
+  background-color: hsla(40, 100%, 80%, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/*button*/
+.btn-container {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center if full height */
+}
+.btn {
+  padding: 10px 20px;
+  background-color: hsl(214, 72%, 33%, 0.8);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: hsla(214, 100%, 50%, 0.8);
+}
+/*festival*/
+.popular-festival {
+width: 100%;           /* full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers heading and text */
+  margin: 5% 0;          /* vertical spacing */
+  box-sizing: border-box; /* include padding in width */   /* space below button */
+}
+.popular-festival p{
+  margin
+  :-1%;
+}
+
+
 

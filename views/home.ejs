@@ -18,9 +18,44 @@
       </video>
       <div class="overlay"></div>
     </div>
+
     <div class="popular-destination">
-      <h1>Popular Destination</h1>
+      <p style="text-align: center;color: hsl(214, 72%, 33%);">Uncover place</p>
+      <h1 style="color: hsl(214, 72%, 33%);">Popular Destination</h1>
+
+      <div class="grid-container">
+        <% destinations.forEach(dest=> { %>
+          <div class="grid-item">
+            <img src="<%= dest.images[0] %>" alt="<%= dest.name %>">
+            <h3>
+              <%= dest.name %>
+            </h3>
+          </div>
+          <% }) %>
+      </div>
+      <div class="btn-container">
+        <button class="btn">Discover More</button>
+      </div>
     </div>
+
+<div class="popular-festival">
+    <p style="text-align: center;color: hsl(214, 72%, 33%);">Festivals</p>
+    <h1 style="color: hsl(214, 72%, 33%);">Popular Festival</h1>
+    <p>There are so many festival throughout the year</p>
+<div class="grid-container">
+        <% destinations.forEach(dest=> { %>
+          <div class="grid-item">
+            <img src="<%= dest.images[0] %>" alt="<%= dest.name %>">
+            <h3>
+              <%= dest.name %>
+            </h3>
+          </div>
+          <% }) %>
+      </div>
+  </div>
+
+    <script src="../javascripts/script.js"></script>
+
 </body>
 
 </html>
