@@ -1,0 +1,22 @@
+<h1><%= city.name %></h1>
+<p><%= city.description %></p>
+
+<h2>Region: <%= region.name %></h2>
+<p><%= region.description %></p>
+
+<% if (content.length) { %>
+  <h3>Content:</h3>
+  <ul>
+    <% content.forEach(c => { %>
+      <li>
+        <strong><%= c.title %></strong> — <%= c.description %>
+        <% if (c.image_urls && c.image_urls.length) { %>
+          <br>
+          <img src="<%= c.image_urls[0] %>" alt="<%= c.title %>" style="width:200px; height:auto; border-radius:8px;">
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No content found for this city.</p>
+<% } %>

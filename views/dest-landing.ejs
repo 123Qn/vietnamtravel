@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <% include nav.ejs %>
+        <div class="video-container">
+            <img src="<%= region.image_url?.[0] || '/images/default-region.jpg' %>" alt="<%= region.name %>"
+                style="width:100%;height: 650px; margin-bottom:20px;">
+            <div style="  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+    height: 650px;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;"></div>
+            <div class="hero-content">
+                <h1>
+                    <%= region.name %>
+                </h1>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+
+            <h2 style="justify-content: center;display: flex;color: hsl(214, 72%, 33%, 0.95);">
+                <%= region.description %>
+            </h2>
+            <div class="controls">
+                <label for="citySort">Sort by:</label>
+
+                <select class="sortList" id="citySort">
+                    <option value="name-asc">Name A → Z</option>
+                    <option value="name-desc">Name Z → A</option>
+                </select>
+
+                <label  for="citySearch">Search:</label>
+                <input class="sortList" type="text" id="citySearch" placeholder="Type city name...">
+            </div>
+
+            <div class="selection">
+                <div class="grid-container" id="cityGrid">
+                    <% cities.forEach(city=> { %>
+                        <div class="grid-item">
+                            <img src="<%= city.image_url?.[0] || '/images/default.jpg' %>" alt="<%= city.name %>">
+                            <h3>
+                                <%= city.name %>
+                            </h3>
+                            <p>
+                                <%= city.description %>
+                            </p>
+                            <a
+                                href="/destinations/<%= Object.keys(regionMap).find(k => regionMap[k] === region.name) %>/<%= city.name %>">View
+                                Details</a>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+        <script src="/javascripts/script.js"></script>
+</body>
+
+
+
+</html>

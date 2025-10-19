@@ -4,6 +4,7 @@ body {
   margin:0;
   padding:0;
     overflow-x: hidden;
+    height: 100%;
 }
 
 a {
@@ -16,22 +17,85 @@ li {
   list-style: none;
 }
 /* Navigation bar styles */
-.nav-list{
-  display: flex;
-  gap: 50px;
-  padding: 0;
-  flex-direction: row;
-}
 .main-nav {
-    position: fixed; /* fix navbar on top */
-    margin-top: 50px;
-    width: 100%;
-    z-index: 10; 
-    color: white;
-    display: flex;           /* make it flex */
-    justify-content: center; /* center items horizontally */
-    align-items: center;     /* center items vertically */
+  background-color: hsl(214, 72%, 33%, 0.8);
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;   /* ✅ fits its children */
+  max-width: 90vw;      /* keeps it inside viewport */
+  z-index: 10;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
+
+.nav-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  flex-shrink: 1; /* ✅ allows them to compress slightly instead of breaking line */
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap; /* ✅ keeps text from breaking */
+}
+.nav-item {
+  position: relative;
+}
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;          /* right below parent */
+  left: 0;
+  background-color: hsl(214, 72%, 33%, 0.95);
+  display: none;
+  flex-direction: column;
+  min-width: 150px;   /* keeps dropdown wide enough */
+  padding: 0;         /* remove default padding */
+  margin: 0;          /* remove default margin */
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1000;      /* must be above nav bar */
+}
+
+.dropdown-menu li {
+  padding: 0;  /* remove extra padding */
+}
+
+.dropdown-menu li a {
+  display: block;         /* makes the link fill full li width */
+  padding: 10px 20px;     /* internal spacing for clickable area */
+  color: white;
+  text-decoration: none;
+  width: 100%;            /* full width to remove gaps */
+}
+
+.dropdown-menu li:hover {
+  background-color: hsl(214, 100%, 84%);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -41,7 +105,7 @@ li {
 
 .hero-video {
   width: 100%;
-  height: 80%;
+  height: 100%;
   object-fit: cover;
 }
 .overlay {
@@ -49,14 +113,224 @@ li {
   top: 0;
   left: 0;
   width: 100%;
-    height: 80%;
+    height: 100%;
   background: rgba(0, 0, 0, 0.35); /* darkness level (0.3–0.5 is ideal) */
   z-index: 1;
 }
-/*For display the popular destination in home page*/
-.popular-destination h1{
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  position: relative;
-  margin:-5%;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: heroAppear 2.5s ease-out forwards; /* run once */
 }
 
+/* ✨ Fade-in + upward slide effect */
+@keyframes heroAppear {
+  0% {
+    transform: translate(-50%, -40%); /* start slightly lower */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+/*For display the popular destination in home page*/
+.popular-destination p{
+  margin-top: 2%;
+  margin-bottom:-1%;
+}
+.popular-destination{
+    position: relative;
+  background-color:  #f0f8ff;
+}
+
+.popular-festival,.popular-destination, .selection {         /* full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers heading and text */
+  box-sizing: border-box; /* include padding in width */   /* space below button */
+}
+/*festival*/
+.popular-festival p{
+  margin-top:1%;
+    margin-bottom:-1%;
+}
+.popular-festival{
+  position: relative;
+  background-color: rgb(246, 243, 243);
+  width: 100%;
+}
+
+/*Grid 3x2*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+  justify-items: center;
+  justify-content: center; 
+  margin: 0 auto;    /* center the container itself */
+}
+.grid-container h3{
+  color: hsl(214, 72%, 33%);
+}
+.grid-item {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/*button*/
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center if full height */
+  margin-bottom: 5%;
+}
+.btn {
+  padding: 10px 20px;
+  background-color: hsl(214, 72%, 33%, 0.8);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: hsla(214, 100%, 50%, 0.8);
+}
+
+
+/*image container effect*/
+.image-container {
+  width: 100%;
+  height: 700px;      /* fixed height for all images */
+  overflow: hidden;   /* hide overflow if images are taller */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;       /* fill container */
+  object-fit: cover;  /* crop as needed to maintain aspect ratio */
+  display: block;
+  transition: opacity 10s;
+}
+
+/*travel */
+.travel {
+  position: relative;
+  background-color: #f0f8ff;
+  width: 100%;
+  padding: 5% 2%;
+  text-align: center;
+
+}
+
+.travel h1 {
+  color: hsl(214, 72%, 33%);
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.travel h4 {
+  color: hsl(214, 72%, 33%);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.travel-grid {
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+  flex-wrap: wrap; /* wraps items on smaller screens */
+}
+
+.travel-item {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.travel-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.travel-item img {
+  width: 100%;
+  height: 200px;       /* all images same height */
+  object-fit: cover;    /* maintain aspect ratio, crop if needed */
+}
+
+.travel-item h3 {
+  margin: 1rem 0 0.5rem 0;
+  color: hsl(214, 72%, 33%);
+}
+
+.travel-item p {
+  padding: 0 1rem 1rem 1rem;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.footer {
+  position: relative;
+  background-color: hsl(214, 72%, 33%, 0.8);
+  color: white;
+  text-align: center;
+}
+/* sort list */
+.controls{
+  justify-content: center; /* center children inside */
+  align-items: center;     /* vertical alignment of children */
+  gap: 10px;
+  background-color: hsla(214, 100%, 81%, 0.8);
+  padding: 10px;
+  width: 420px;
+ border-radius: 10px;
+  margin: 0 auto; /* center container horizontally */
+}
+.sortList {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
