@@ -17,6 +17,9 @@
         <source src="images/hero.mp4" type="video/mp4">
       </video>
       <div class="overlay"></div>
+      <div class="hero-content">
+        <h5>Welcome to Vietnam</h5>
+      </div>
     </div>
 
     <div class="popular-destination">
@@ -38,24 +41,59 @@
       </div>
     </div>
 
-<div class="popular-festival">
-    <p style="text-align: center;color: hsl(214, 72%, 33%);">Festivals</p>
-    <h1 style="color: hsl(214, 72%, 33%);">Popular Festival</h1>
-    <p>There are so many festival throughout the year</p>
-<div class="grid-container">
-        <% destinations.forEach(dest=> { %>
+    <div class="popular-festival">
+      <p style="text-align: center;color: hsl(214, 72%, 33%);">Festivals</p>
+      <h1 style="color: hsl(214, 72%, 33%);">Popular Festival</h1>
+      <p style="margin-top: -1%;">Check out some popular events in Vietnam</p>
+      <div class="grid-container">
+        <% events.forEach(event=> { %>
           <div class="grid-item">
-            <img src="<%= dest.images[0] %>" alt="<%= dest.name %>">
+            <img src="<%= event.image_url[0]%>" alt="<%= event.name %>">
             <h3>
-              <%= dest.name %>
+              <%= event.name %>
             </h3>
           </div>
           <% }) %>
       </div>
-  </div>
+            <div style="width: 120%;" class="btn-container">
+        <button class="btn">VIEW ALL EVENT</button>
+      </div>
+    </div>
 
-    <script src="../javascripts/script.js"></script>
 
+<div class="image-container">
+  <img id="slide" src="/images/s1.jpg" alt="Slide" />
+</div>
+
+
+<div class="travel">
+  <h1>Plan your journey</h1>
+  <h4>What to prepare for your trip</h4>
+  <div class="travel-grid">
+    <div class="travel-item">
+      <img src="/images/plan1.jpg" alt="Travel Item 1">
+      <h3>Check Available Transport</h3>
+      <p>Discover the must-have items for your Vietnam adventure.</p>
+    </div>
+    <div class="travel-item">
+      <img src="/images/plan2.jpg" alt="Travel Item 2">
+      <h3>Travel Safety Tips</h3>
+      <p>Stay safe with our comprehensive travel safety guidelines.</p>
+    </div>
+    <div class="travel-item">
+      <img src="/images/plan3.jpg" alt="Travel Item 3">
+      <h3>Cultural Etiquette</h3>
+      <p>Learn about local customs and traditions to enhance your experience.</p>
+    </div>  
+  </div> <!-- end travel-grid -->
+</div> <!-- end travel -->
+
+<div class="footer">
+  this is footer
+</div>
+<script src="/javascripts/script.js"></script>
 </body>
+
+
 
 </html>
