@@ -1,9 +1,9 @@
 import express from "express";
 import pool from "../db/db.js";
 
-const router = express.Router();
+const homeRouter = express.Router();
 
-router.get("/", async (req, res) => {
+homeRouter.get("/", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM destinations LIMIT 6");
     const eventResult = await pool.query("SELECT * FROM events LIMIT 6");
@@ -16,4 +16,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-export default router;
+export default homeRouter;

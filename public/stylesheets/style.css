@@ -32,7 +32,6 @@ li {
   align-items: center;
   padding: 10px 20px;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .nav-list {
@@ -53,6 +52,48 @@ li {
   text-decoration: none;
   font-weight: bold;
   white-space: nowrap; /* ✅ keeps text from breaking */
+}
+.nav-item {
+  position: relative;
+}
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;          /* right below parent */
+  left: 0;
+  background-color: hsl(214, 72%, 33%, 0.95);
+  display: none;
+  flex-direction: column;
+  min-width: 150px;   /* keeps dropdown wide enough */
+  padding: 0;         /* remove default padding */
+  margin: 0;          /* remove default margin */
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1000;      /* must be above nav bar */
+}
+
+.dropdown-menu li {
+  padding: 0;  /* remove extra padding */
+}
+
+.dropdown-menu li a {
+  display: block;         /* makes the link fill full li width */
+  padding: 10px 20px;     /* internal spacing for clickable area */
+  color: white;
+  text-decoration: none;
+  width: 100%;            /* full width to remove gaps */
+}
+
+.dropdown-menu li:hover {
+  background-color: hsl(214, 100%, 84%);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: flex;
 }
 
 .video-container {
@@ -114,7 +155,7 @@ li {
   background-color:  #f0f8ff;
 }
 
-.popular-festival,.popular-destination {         /* full width */
+.popular-festival,.popular-destination, .selection {         /* full width */
   display: flex;
   flex-direction: column;
   align-items: center;   /* centers heading and text */
@@ -275,5 +316,21 @@ li {
   background-color: hsl(214, 72%, 33%, 0.8);
   color: white;
   text-align: center;
-
+}
+/* sort list */
+.controls{
+  justify-content: center; /* center children inside */
+  align-items: center;     /* vertical alignment of children */
+  gap: 10px;
+  background-color: hsla(214, 100%, 81%, 0.8);
+  padding: 10px;
+  width: 420px;
+ border-radius: 10px;
+  margin: 0 auto; /* center container horizontally */
+}
+.sortList {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }

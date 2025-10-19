@@ -5,9 +5,11 @@ import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
-import indexRouter from './routes/home.js';
 import usersRouter from './routes/users.js';
-
+import homeRouter from './routes/home.js';
+import regionRouter from './routes/regions.js';
+import cityRouter from './routes/city.js';
+import regionSelectRouter from './routes/regionSelection.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,9 +29,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', homeRouter);
 app.use('/users', usersRouter);
-
+app.use('/destinations', regionRouter);       // /destinations/north
+app.use('/destinations', cityRouter);         // /destinations/north/Hanoi
+app.use('/discover', regionSelectRouter);  // <-- this is the new page
 // test DB route
 app.get("/test-db", async (req, res) => {
   try {
