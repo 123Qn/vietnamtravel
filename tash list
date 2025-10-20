@@ -1,0 +1,14 @@
+[33m4cd944a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnav_and_home[m[33m, [m[1;31morigin/nav_and_home[m[33m)[m HEAD@{0}: checkout: moving from nav_and_home to nav_and_home
+[33m4cd944a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnav_and_home[m[33m, [m[1;31morigin/nav_and_home[m[33m)[m HEAD@{1}: checkout: moving from destination to nav_and_home
+[33m9943916[m[33m ([m[1;32mdestination[m[33m)[m HEAD@{2}: commit: add all
+[33m99382d5[m[33m ([m[1;31morigin/regions[m[33m, [m[1;31morigin/food_restaurant[m[33m, [m[1;31morigin/event[m[33m, [m[1;31morigin/destination[m[33m, [m[1;31morigin/comment[m[33m, [m[1;31morigin/city[m[33m)[m HEAD@{3}: checkout: moving from nav_and_home to destination
+[33m4cd944a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnav_and_home[m[33m, [m[1;31morigin/nav_and_home[m[33m)[m HEAD@{4}: reset: moving to HEAD
+[33m4cd944a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnav_and_home[m[33m, [m[1;31morigin/nav_and_home[m[33m)[m HEAD@{5}: commit: add city display to project
+[33m4cf135a[m HEAD@{6}: commit: finish homepage
+[33md7a2a6b[m HEAD@{7}: commit: add the grid to home
+[33m04c66a3[m HEAD@{8}: commit: add the grid to home
+[33m977f864[m[33m ([m[1;32mmain[m[33m)[m HEAD@{9}: merge origin/main: Fast-forward
+[33m99382d5[m[33m ([m[1;31morigin/regions[m[33m, [m[1;31morigin/food_restaurant[m[33m, [m[1;31morigin/event[m[33m, [m[1;31morigin/destination[m[33m, [m[1;31morigin/comment[m[33m, [m[1;31morigin/city[m[33m)[m HEAD@{10}: checkout: moving from main to nav_and_home
+[33m977f864[m[33m ([m[1;32mmain[m[33m)[m HEAD@{11}: commit: add nav and parrt of home
+[33m99382d5[m[33m ([m[1;31morigin/regions[m[33m, [m[1;31morigin/food_restaurant[m[33m, [m[1;31morigin/event[m[33m, [m[1;31morigin/destination[m[33m, [m[1;31morigin/comment[m[33m, [m[1;31morigin/city[m[33m)[m HEAD@{12}: commit: add
+[33ma58b5de[m HEAD@{13}: commit: Remove node_modules and .env from repo, add .gitignore
